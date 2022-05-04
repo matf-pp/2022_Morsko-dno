@@ -209,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                 );
               });
         }
-        else {
+        else if(indNovcici==0) {
           if (kesa<-1.8) {
             kesa += 3;
           }else if(kesa < 0.1 && kesa > -0.1 && (ribaYaxis > -0.5 && ribaYaxis < -0.3)){
@@ -254,7 +254,7 @@ class _HomePageState extends State<HomePage> {
                 );
               });
         }
-        else {
+        else if(indNovcici<2) {
           if (casa<-1.8) {
             casa += 3;
           }else if(casa < 0.08 && casa > -0.08 && (ribaYaxis < 0.6 && ribaYaxis > 0.4)){
@@ -380,7 +380,7 @@ class _HomePageState extends State<HomePage> {
                 );
               });
         }
-        else {
+        else if(indNovcici<3) {
           if (flasa<-1.8) {
             flasa += 3;
           }else if(flasa < 0.08 && flasa > -0.08 && (ribaYaxis < 0.4 && ribaYaxis > 0.2)){
