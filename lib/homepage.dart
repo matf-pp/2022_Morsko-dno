@@ -558,7 +558,19 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: Stack(
         children: [
-          GestureDetector(
+         RawKeyboardListener(
+        autofocus: true,
+        focusNode: FocusNode(),
+        onKey: (event) {
+          if (event.isKeyPressed(LogicalKeyboardKey.space)) {
+            if (gameHasStarted) {
+              jump();
+            } else if(!gameHasStarted && howToPlayProzor==false){
+              startGame();
+            }
+          }
+        },
+        child:GestureDetector(
             onTap: () {
               if (gameHasStarted) {
                 jump();
@@ -823,21 +835,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-
-          RawKeyboardListener(
-            autofocus: true,
-            focusNode: FocusNode(),
-            onKey: (event) {
-              if (event.isKeyPressed(LogicalKeyboardKey.space)) {
-                if (gameHasStarted) {
-                  jump();
-                } else if(!gameHasStarted && howToPlayProzor==false){
-                  startGame();
-                }
-              }
-            },
-            child: Text(""),
-          )
+        )
         ],
       ),
     );
