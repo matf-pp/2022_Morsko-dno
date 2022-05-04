@@ -28,9 +28,9 @@ class _HomePageState extends State<HomePage> {
   List<double> prepreke = [];
   int rezultat = 0;
   int najboljiRezultat = 0;
-  double coin1 = 1.8 + 0.5;
-  double coin2 = 1.8 + 1.5 + 0.4;
-  double coin3 = 1.8 + 1.5 + 0.9;
+  double novcic1 = 1.8 + 0.5;
+  double novcic2 = 1.8 + 1.5 + 0.4;
+  double novcic3 = 1.8 + 1.5 + 0.9;
   double kesa = 1.8 + 1.5 + 1.1;
   double flasa = 1.8 + 1.5 + 1.5 + 1.2;
   double casa = 1.8 + 1.5 + 0.5;
@@ -61,9 +61,9 @@ class _HomePageState extends State<HomePage> {
       pocetnaVisina = ribaYaxis;
       prepreke = [1.8,1.8+1.5,1.8+3,1.8+2.5];
       rezultat = 0;
-      coin1 = 1.8 + 0.5;
-      coin2 = 1.8 + 1.5 + 0.4;
-      coin3 = 1.8 + 1.5 + 0.7;
+      novcic1 = 1.8 + 0.5;
+      novcic2 = 1.8 + 1.5 + 0.4;
+      novcic3 = 1.8 + 1.5 + 0.7;
       indNovcici==0 ?
       kesa = 1.8 + 1.5 + 1
           : kesa = 100000;
@@ -145,34 +145,33 @@ class _HomePageState extends State<HomePage> {
           }
         }
 
-        // coin1
-        if (coin1<-1.8) {
-          coin1 += 3;
-        }else if(coin1 < 0.08 && coin1 > -0.08 && (ribaYaxis > -0.6 && ribaYaxis < -0.4)){
-          coin1+=3;
+        // novcic1
+        if (novcic1<-1.8) {
+          novcic1 += 3;
+        }else if(novcic1 < 0.08 && novcic1 > -0.08 && (ribaYaxis > -0.6 && ribaYaxis < -0.4)){
+          novcic1+=3;
           rezultat+=3;
           ukupnoNovcica++;
         }
-        coin1 -= 0.04;
-        // coin2
-        if (coin2<-1.8) {
-          coin2 += 3;
-        }else if(coin2 < 0.08 && coin2 > -0.08 && (ribaYaxis < 0.6 && ribaYaxis > 0.4)){
-          coin2+=3;
+        novcic1 -= 0.04;
+        // novcic2
+        if (novcic2<-1.8) {
+          novcic2 += 3;
+        }else if(novcic2 < 0.08 && novcic2 > -0.08 && (ribaYaxis < 0.6 && ribaYaxis > 0.4)){
+          novcic2+=3;
           rezultat+=3;
           ukupnoNovcica++;
         }
-        coin2 -= 0.04;
-
-        // coin3
-        if (coin3<-1.8) {
-          coin3 += 3;
-        }else if(coin3 < 0.08 && coin3 > -0.08 && (ribaYaxis > -0.5 && ribaYaxis < -0.3)){
-          coin3+=3;
+        novcic2 -= 0.04;
+        // novcic3
+        if (novcic3<-1.8) {
+          novcic3 += 3;
+        }else if(novcic3 < 0.08 && novcic3 > -0.08 && (ribaYaxis > -0.5 && ribaYaxis < -0.3)){
+          novcic3+=3;
           rezultat+=2;
           ukupnoNovcica++;
         }
-        coin3 -= 0.04;
+        novcic3 -= 0.04;
 
         //kesa
         if (ukupnoNovcica == 100 && indNovcici==0) {
@@ -587,9 +586,9 @@ class _HomePageState extends State<HomePage> {
                               child: MyRiba(indr:indRibe)
                           ),//riba
 
-                          MyNovcic(x:coin1, y:-0.5),//coin1
-                          MyNovcic(x:coin2, y:0.5),//coin2
-                          MyNovcic(x:coin3, y:-0.4),//coin3
+                          MyNovcic(x:novcic1, y:-0.5),//novcic1
+                          MyNovcic(x:novcic2, y:0.5),//novcic2
+                          MyNovcic(x:novcic3, y:-0.4),//novcic3
 
                           MyPlastika(ind:1,x:kesa),//kesa
                           MyPlastika(ind:2,x:flasa),//flasa
