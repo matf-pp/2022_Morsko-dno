@@ -2,25 +2,35 @@ import 'package:flutter/material.dart';
 
 class MyPrepreka extends StatelessWidget {
 
-  final preprekaSirina;
-  final preprekaVisina;
+  final ind;
+  final size;
+  final y;
+  final x;
 
-  MyPrepreka(
-  {
-    this.preprekaVisina,
-    this.preprekaSirina});
+  MyPrepreka({this.ind,this.size,this.x,this.y});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: MediaQuery.of(context).size.width * preprekaSirina/2,
-        height: MediaQuery.of(context).size.height * 3/4 * preprekaVisina/2,
-      decoration: BoxDecoration(
-          color: Colors.brown[400],
-          border: Border.all(width: 1,color: Colors.brown),
-          borderRadius: BorderRadius.circular(10)
-      ),
-    );
+    if(ind==1) {   //gore
+      return AnimatedContainer(
+        alignment: Alignment(x,y),
+        duration: Duration(milliseconds: 0),
+        child: Image.asset(
+          'lib/slike/eel_down.gif',
+          width: size,
+          height: size,
+        ),
+      );
+    } else { // ind=2 dole
+      return AnimatedContainer(
+        alignment: Alignment(x,y),
+        duration: Duration(milliseconds: 0),
+        child: Image.asset(
+          'lib/slike/seaweed2.gif',
+          width: size,
+          height: size,
+        ),
+      );
+    }
   }
 }
-
