@@ -623,12 +623,12 @@ class _HomePageState extends State<HomePage> {
                           MyKraba(x:kraba), //kraba
 
                           MyPrepreka(ind:2,size:220.0,x:prepreke[0],y:1.1),//pd1
-                          MyPrepreka(ind:2,size:200.0,x:prepreke[1],y:1.1),//pd2
+                          MyPrepreka(ind:2,size:300.0,x:prepreke[1],y:1.1),//pd2
                           MyPrepreka(ind:2,size:200.0,x:prepreke[2],y:1.1),//pd3
-                          MyPrepreka(ind:2,size:200.0,x:prepreke[3],y:1.1),//pd4
+                          MyPrepreka(ind:2,size:250.0,x:prepreke[3],y:1.1),//pd4
                           MyPrepreka(ind:1,size:300.0,x:prepreke[0],y:-1.3),//pg1
                           MyPrepreka(ind:1,size:300.0,x:prepreke[1],y:-1.5),//pg2
-                          MyPrepreka(ind:1,size:300.0,x:prepreke[2],y:-1.7),//pg3
+                          MyPrepreka(ind:1,size:400.0,x:prepreke[2],y:-1.5),//pg3
 
                           Container(
                             alignment: Alignment(0, -0.3),
