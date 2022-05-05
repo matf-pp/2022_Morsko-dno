@@ -41,14 +41,13 @@ class _HomePageState extends State<HomePage> {
   List<double> mehuric = [];
   double ribe1=2.5;
   double ribe2=3.5;
-
   int ukupnoNovcica=0;
+  
   int indNovcici=0;
-
+  int indCrveno=0;
   int ind=0;
   bool igraJeUToku=false;
   bool howToPlayProzor=false;
-
 
 
   @override
@@ -81,8 +80,8 @@ class _HomePageState extends State<HomePage> {
       ribe2 = 6.5;
 
       igraJeUToku=false;
-
       ind=0;
+      indCrveno=0;
 
     });
 
@@ -96,23 +95,23 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool checkLose() { //umire kad udari u prepreku
-    if (prepreke[0] < 0.08 && prepreke[0] > -0.08) {
-      if (ribaYaxis < -0.3 || ribaYaxis > 0.45) {
+    if (prepreke[0] < 0.1 && prepreke[0] > -0.1) {
+      if (ribaYaxis < -0.35 || ribaYaxis > 0.5) {
         return true;
       }
     }
-    if (prepreke[1] < 0.08 && prepreke[1] > -0.08) {
-      if (ribaYaxis < -0.45 || ribaYaxis > 0.45) {
+    if (prepreke[1] < 0.1 && prepreke[1] > -0.1) {
+      if (ribaYaxis < -0.6 || ribaYaxis > 0.3) {
         return true;
       }
     }
-    if (prepreke[2] < 0.08 && prepreke[2] > -0.08) {
-      if (ribaYaxis < -0.55 || ribaYaxis > 0.45) {
+    if (prepreke[2] < 0.1 && prepreke[2] > -0.1) {
+      if (ribaYaxis < -0.2 || ribaYaxis > 0.6) {
         return true;
       }
     }
-    if (prepreke[3] < 0.08 && prepreke[3] > -0.08) {
-      if (ribaYaxis > 0.45) {
+    if (prepreke[3] < 0.1 && prepreke[3] > -0.1) {
+      if (ribaYaxis > 0.4) {
         return true;
       }
     }
@@ -131,7 +130,7 @@ class _HomePageState extends State<HomePage> {
     gameHasStarted = true;
     igraJeUToku=true;
     Timer.periodic(Duration(milliseconds: 60), (timer) {
-      vreme += 0.04;
+      vreme += 0.045;
       visina = -4.9 * vreme * vreme + 2.8 * vreme;
       setState(() {
         ribaYaxis = pocetnaVisina - visina;
@@ -148,28 +147,31 @@ class _HomePageState extends State<HomePage> {
         // novcic1
         if (novcic1<-1.8) {
           novcic1 += 3;
-        }else if(novcic1 < 0.08 && novcic1 > -0.08 && (ribaYaxis > -0.6 && ribaYaxis < -0.4)){
+        }else if(novcic1 < 0.09 && novcic1 > -0.09 && (ribaYaxis > -0.6 && ribaYaxis < -0.4)){
           novcic1+=3;
           rezultat+=3;
           ukupnoNovcica++;
+          indCrveno=0;
         }
         novcic1 -= 0.04;
         // novcic2
         if (novcic2<-1.8) {
           novcic2 += 3;
-        }else if(novcic2 < 0.08 && novcic2 > -0.08 && (ribaYaxis < 0.6 && ribaYaxis > 0.4)){
+        }else if(novcic2 < 0.09 && novcic2 > -0.09 && (ribaYaxis < 0.6 && ribaYaxis > 0.4)){
           novcic2+=3;
           rezultat+=3;
           ukupnoNovcica++;
+          indCrveno=0;
         }
         novcic2 -= 0.04;
         // novcic3
         if (novcic3<-1.8) {
           novcic3 += 3;
-        }else if(novcic3 < 0.08 && novcic3 > -0.08 && (ribaYaxis > -0.5 && ribaYaxis < -0.3)){
+        }else if(novcic3 < 0.09 && novcic3 > -0.09 && (ribaYaxis > -0.5 && ribaYaxis < -0.3)){
           novcic3+=3;
           rezultat+=2;
           ukupnoNovcica++;
+          indCrveno=0;
         }
         novcic3 -= 0.04;
 
@@ -214,6 +216,7 @@ class _HomePageState extends State<HomePage> {
           }else if(kesa < 0.1 && kesa > -0.1 && (ribaYaxis > -0.5 && ribaYaxis < -0.3)){
             kesa+=3;
             rezultat-=2;
+            indCrveno=1;
           }
           kesa -= 0.04;
         }
@@ -259,6 +262,7 @@ class _HomePageState extends State<HomePage> {
           }else if(casa < 0.08 && casa > -0.08 && (ribaYaxis < 0.6 && ribaYaxis > 0.4)){
             casa+=3;
             rezultat-=2;
+            indCrveno=1;
           }
           casa -= 0.04;
         }
@@ -385,6 +389,7 @@ class _HomePageState extends State<HomePage> {
           }else if(flasa < 0.08 && flasa > -0.08 && (ribaYaxis < 0.4 && ribaYaxis > 0.2)){
             flasa+=3;
             rezultat-=2;
+            indCrveno=1;
           }
           flasa -= 0.04;
         }
@@ -507,7 +512,7 @@ class _HomePageState extends State<HomePage> {
             ),
             //kraj igre
             content: Text(
-              "rezultat: " + rezultat.toString()+"\nskupljeno novčića: "+  ukupnoNovcica.toStringAsFixed(0),
+              "rezultat: " + rezultat.toString()+"\nsakupljeno novčića: "+  ukupnoNovcica.toStringAsFixed(0),
               style: TextStyle(color: Colors.white),
             ), //rezultat
             actions: [
@@ -585,13 +590,21 @@ class _HomePageState extends State<HomePage> {
                       flex: 6,
                       child: Stack(
                         children: [
+                          indCrveno==0 ?
                           Container(
                             decoration: const BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage("lib/slike/blue.jpg"),
                                   fit: BoxFit.cover),
                             ),
-                          ),//pozadina
+                          )//pozadina
+                          : Container(
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("lib/slike/red.jpg"),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),//crveno
                           AnimatedContainer(
                               alignment: Alignment(0, ribaYaxis),
                               duration: Duration(milliseconds: 0),
@@ -780,7 +793,7 @@ class _HomePageState extends State<HomePage> {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("SKUPLJENO NOVČIĆA",
+                                  Text("SAKUPLJENO NOVČIĆA",
                                       style:
                                       TextStyle(color: Colors.black, fontSize: 20, backgroundColor: Colors.orange[200])),
                                   SizedBox(
@@ -814,7 +827,7 @@ class _HomePageState extends State<HomePage> {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("SKUPLJENO NOVČIĆA",
+                                  Text("SAKUPLJENO NOVČIĆA",
                                       style:
                                       TextStyle(color: Colors.black, fontSize: 20, backgroundColor: Colors.orange[200])),
                                   SizedBox(
