@@ -26,6 +26,7 @@
 ## Jezici i tehnologije:
       Aplikacija je napisana u programskom jeziku Dart. 
       Korišćen je framework Flutter, a rađeno je u Android Studio okruženju.
+      Pokreće se na Windows operativnom sistemu.
       
 ## Autori:
       Marija Bogavac - marijabogavac001@gmail.com
