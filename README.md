@@ -1,6 +1,7 @@
 # Morsko dno
-       
-# Kratak opis igrice:
+<br/>
+
+## Kratak opis igrice:
        Igra je smeštena na dno mora, gde ribe žive u zagađenom okruženju.
        Cilj je izbaciti svu plastiku iz mora.
        Glavni lik jeste riba koja se pokreće klikom ili pritiskom na space.
@@ -22,10 +23,10 @@
 ![Capture5](https://user-images.githubusercontent.com/101059677/166937977-facba97f-a2d1-4a4c-ae3d-19a8c03ecc64.PNG)
 
 
-# Jezici i tehnologije:
+## Jezici i tehnologije:
       Aplikacija je napisana u programskom jeziku Dart. 
       Korišćen je framework Flutter, a rađeno je u Android Studio okruženju.
       
-# Autori:
+## Autori:
       Marija Bogavac - marijabogavac001@gmail.com
       Nevena Mijailović - nevena.mijailovic000@gmail.com
